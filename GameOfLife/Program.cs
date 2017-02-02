@@ -213,11 +213,14 @@ namespace GameOfLife
         {
             if (turns == 0)
             {
-                for (;;)
+                do
                 {
-                    oneTurn();
-                    Thread.Sleep(delay);
-                }
+                    while (!Console.KeyAvailable)
+                    {
+                        oneTurn();
+                        Thread.Sleep(delay);
+                    }
+                } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
             } else
             {
                 for (int i = 0; i < turns; i++)
@@ -226,6 +229,8 @@ namespace GameOfLife
                     Thread.Sleep(delay);
                 }
             }
+            chooseStart();
+            start(delay, turns);
         }
 
     }
@@ -262,6 +267,7 @@ namespace GameOfLife
                                    Guide:
                     - Place the starting cells with Enter
                     - When ready to go, press Esc
+                    - Press Esc to pause and add/remove cells
 
                           (Press any key to start)
 ";
