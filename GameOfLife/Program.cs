@@ -279,7 +279,7 @@ namespace GameOfLife
             Console.WindowWidth = width*2+1;
             Console.WindowHeight = heigth+1;
             var mondoProva = new World(width, heigth);
-
+            
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
 
